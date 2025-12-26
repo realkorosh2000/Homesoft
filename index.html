@@ -1,98 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HomeSoft</title>
-    <style>
-        /* ======= CSS ======= */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f8ff;
-            color: #333;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HomeSoft</title>
+<style>
+/* ======= CSS ======= */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    background-color: #f0f8ff;
+}
 
-        /* Top menu */
-        nav {
-            background-color: #0077cc;
-            padding: 15px 20px;
-            display: flex;
-            justify-content: flex-end;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
+/* Top menu */
+nav {
+    background-color: #0077cc;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: flex-end;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 100;
+}
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: bold;
+}
+nav a:hover { text-decoration: underline; }
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 20px;
-            font-weight: bold;
-        }
+/* Hero section */
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+.blue-button {
+    background-color: #0077cc;
+    color: white;
+    border: none;
+    padding: 20px 40px;
+    font-size: 1.2em;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.blue-button:hover { background-color: #005fa3; }
 
-        nav a:hover {
-            text-decoration: underline;
-        }
+/* Sections */
+section {
+    padding: 120px 20px 50px;
+    max-width: 900px;
+    margin: auto;
+}
+h2 { color: #0077cc; text-align:center; }
 
-        /* Centered button */
-        .center-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            flex-direction: column;
-            text-align: center;
-        }
+/* Packages container */
+#packages {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 30px;
+}
+.package-btn {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: 1px solid #0077cc;
+    border-radius: 5px;
+    background-color: white;
+    transition: background-color 0.3s, transform 0.2s;
+}
+.package-btn:hover {
+    background-color: #e0f0ff;
+    transform: translateY(-2px);
+}
+.package-btn img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
 
-        .blue-button {
-            background-color: #0077cc;
-            color: white;
-            border: none;
-            padding: 20px 40px;
-            font-size: 1.2em;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
+/* Feedback form */
+input, textarea { width: 100%; padding: 10px; margin: 10px 0; border-radius:5px; border:1px solid #ccc; font-size:1em; }
+button.submit-btn {
+    background-color: #0077cc; color:white; border:none; padding:15px 30px; font-size:1em; cursor:pointer; border-radius:5px;
+}
+button.submit-btn:hover { background-color: #005fa3; }
 
-        .blue-button:hover {
-            background-color: #005fa3;
-        }
-
-        footer {
-            text-align: center;
-            padding: 10px 0;
-            background-color: #0077cc;
-            color: white;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
-    </style>
+footer {
+    text-align:center; padding:20px 0; background-color:#0077cc; color:white; margin-top:50px;
+}
+</style>
 </head>
 <body>
-    <!-- Top Menu -->
-    <nav>
-        <a href="#download" onclick="alert('Download clicked!')">Download Software</a>
-        <a href="#feedback" onclick="alert('Feedback clicked!')">Feedback</a>
-    </nav>
 
-    <!-- Center Button -->
-    <div class="center-container">
-        <button class="blue-button" onclick="alert('HomeSoft Button Clicked!')">Get Started</button>
-    </div>
+<!-- Top Menu -->
+<nav>
+    <a href="#download">Download Software</a>
+    <a href="#feedback">Feedback</a>
+</nav>
 
-    <!-- Footer -->
-    <footer>
-        &copy; 2025 HomeSoft
-    </footer>
+<!-- Hero Section -->
+<div class="hero">
+    <h1>Welcome to HomeSoft</h1>
+    <p>Your software solutions start here!</p>
+    <button class="blue-button" onclick="scrollToSection('download')">Get Started</button>
+</div>
 
-    <script>
-        // ======= JavaScript =======
-        console.log("HomeSoft website loaded!");
-    </script>
+<!-- Download Section -->
+<section id="download">
+    <h2>Download Software</h2>
+    <div id="packages"></div>
+</section>
+
+<!-- Feedback Section -->
+<section id="feedback">
+    <h2>Feedback</h2>
+    <form onsubmit="submitFeedback(event)">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea rows="5" placeholder="Your Message" required></textarea>
+        <button class="submit-btn" type="submit">Send Feedback</button>
+    </form>
+</section>
+
+<footer>&copy; 2025 HomeSoft</footer>
+
+<script>
+// ======= JavaScript =======
+
+// Smooth scroll helper
+function scrollToSection(id){
+    document.getElementById(id).scrollIntoView({behavior:'smooth'});
+}
+
+// Feedback form
+function submitFeedback(event){
+    event.preventDefault();
+    alert("Thank you for your feedback! (Demo only)");
+}
+
+// Dynamic download packages
+const packagesData = [
+    {name: "Package1", icon: "download_software/Package1/icon.img", file: "download_software/Package1/name.gg"},
+    {name: "Package2", icon: "download_software/Package2/icon.img", file: "download_software/Package2/name.gg"}
+    // Add more packages here
+];
+
+const container = document.getElementById('packages');
+packagesData.forEach(pkg => {
+    const btn = document.createElement('div');
+    btn.className = 'package-btn';
+    btn.onclick = () => window.location.href = pkg.file;
+
+    const img = document.createElement('img');
+    img.src = pkg.icon;
+    btn.appendChild(img);
+
+    const span = document.createElement('span');
+    span.textContent = pkg.name;
+    btn.appendChild(span);
+
+    container.appendChild(btn);
+});
+</script>
+
 </body>
 </html>
