@@ -7,14 +7,33 @@
 body {
   font-family: Arial, sans-serif;
   background: #eef;
-  margin: 20px;
+  margin: 0;
+  padding: 20px;
 }
-h1, h2 {
-  text-align: center;
+header {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 16px;
+}
+nav a:hover {
+  text-decoration: underline;
 }
 .container {
   max-width: 600px;
-  margin: auto;
+  margin: 40px auto;
   padding: 20px;
   background: #fff;
   border-radius: 10px;
@@ -49,7 +68,13 @@ button:hover {
 </head>
 <body>
 
-<h1>HomeSoft Feedback</h1>
+<header>
+  <h1>HomeSoft Feedback</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="downloads.html">Downloads</a>
+  </nav>
+</header>
 
 <div class="container">
   <h2>Send us your feedback</h2>
@@ -79,15 +104,11 @@ document.getElementById('feedbackForm').addEventListener('submit', function(e){
     timestamp: new Date().toISOString()
   };
 
-  // WARNING: GitHub Pages is static, cannot write JSON automatically
+  // GitHub Pages is static, cannot write JSON automatically
   console.log("New feedback entry (copy to feedbacks.json manually):", feedbackEntry);
 
   document.getElementById('status').innerText = 
     "Thank you for your feedback! To save it permanently, add this entry to feedbacks.json.";
-
-  // Optional: prepare JSON for manual copy
-  const manualJSON = JSON.stringify(feedbackEntry, null, 2);
-  console.log("Copy this JSON to feedbacks.json:", manualJSON);
 
   // Clear form
   document.getElementById('feedbackForm').reset();
