@@ -1,5 +1,5 @@
 # visit
-click this link to visit our web pages: https://realkorosh2000.github.io/homesoft-ir/
+click this link to visit our web pages: https://realkorosh2000.github.io/Homesoft/
 # softwares
 terex-paint Image editor
 # cooming soon:
