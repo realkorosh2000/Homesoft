@@ -9,6 +9,9 @@
     "file": "download_software/terexX/terexX-v1.jar",
     "icon": "download_software/terexX/icon.png"
   }
+  {
+    "name": "ColorPickerPro Color Tool"
+    "file": "download_software/ColorPickerPro/ColorPickerPro-Setup.exe"
+    "icon": "download_software/ColorPickerPro/ColorPickerProIcon.png"
+  }
 ]
-
-
