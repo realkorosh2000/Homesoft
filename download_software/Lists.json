@@ -14,5 +14,11 @@
     "file": "download_software/ColorPickerPro/ColorPickerPro-Setup.exe"
     "icon": "download_software/ColorPickerPro/ColorPickerProIcon.png"
   }
+  {
+    "name": "Jalculator Calculator!"
+    "file": "download_software/ColorPickerPro/Jalculator_setup.exe"
+    "icon": "download_software/ColorPickerPro/Jalculator_icon.png"
+  }
 ]
+
 
